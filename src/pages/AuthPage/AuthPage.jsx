@@ -1,4 +1,7 @@
 import React from 'react';
+import {Routes, Route, Navigate} from 'react-router-dom';
+import {Login} from './Login';
+import {Registration} from './Registration';
 
 import './AuthPage.scss';
 
@@ -7,38 +10,14 @@ const AuthPage = () => {
         <React.Fragment>
             <div className="container">
                 <div className="auth-page">
-                    <h3>Авторизация</h3>
-                    <form className="form form-login">
-                        <div className="row">
-                            <div className="input-field col s12">
-                                <input
-                                    type="email"
-                                    name="email"
-                                    className="validate"
-                                />
-                                <label htmlFor="email">Email</label>
-                            </div>
-
-                            <div className="input-field col s12">
-                                <input
-                                    type="password"
-                                    name="password"
-                                    className="validate"
-                                />
-                                <label htmlFor="password">Пароль</label>
-                            </div>
-                        </div>
-
-                        <div className="row">
-                            <button
-                                className="wawes-effect wawes-light btn btn blue"    
-                            >
-                                Войти
-                            </button>
-
-                            <a href="/" className="btn-outline btn-reg">Нет аккаунта?</a>
-                        </div>
-                    </form>
+                    <Routes>
+                        <Route path="login" element={<Login />} />
+                        <Route path="registration" element={<Registration />} />
+                        <Route
+                            path="*"
+                            element={<Navigate to="login" replace />}
+                        />
+                    </Routes>
                 </div>
             </div>
         </React.Fragment>
