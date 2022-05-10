@@ -36,3 +36,29 @@
     transform: rotate(360deg);
   }
 }
+
+input + label {
+  pointer-events: none;
+
+  * {
+      pointer-events: all;
+  }
+}
+
+.input-field label,
+.input-field input:focus + label,
+.input-field input[type=text]:not(.browser-default):focus:not([readonly]) + label,
+.input-field input[type=email]:not(.browser-default):focus:not([readonly]) + label,
+.input-field input[type=password]:not(.browser-default):focus:not([readonly]) + label {
+    color: #32b3ef;
+}
+
+.input-field input[type=text]:not(.browser-default):focus:not([readonly]),
+.input-field input[type=email]:not(.browser-default):focus:not([readonly]),
+.input-field input[type=password]:not(.browser-default):focus:not([readonly]),
+.input-field input.valid[type=text]:not(.browser-default),
+.input-field input.valid[type=email]:not(.browser-default),
+.input-field input.valid[type=password]:not(.browser-default) {
+    border-bottom: 1px solid #32b3ef;
+    box-shadow: 0 1px 0 0 #32b3ef;
+}

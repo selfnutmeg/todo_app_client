@@ -58,7 +58,7 @@ export const Login = () => {
 
                 <div className="row">
                     <button
-                        className="wawes-effect wawes-light btn blue"
+                        className="waves-effect waves-light btn blue"
                         onClick={loginHandler}
                     >
                         Войти
