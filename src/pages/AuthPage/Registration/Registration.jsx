@@ -1,8 +1,9 @@
 import {React, useState} from 'react';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 import axios from 'axios';
 
 export const Registration = () => {
+    const navigate = useNavigate();
     const [form, setForm] = useState({
         email: '',
         password: ''
@@ -19,7 +20,7 @@ export const Registration = () => {
                     'Content-Type': 'application/json'
                 }
             })
-            .then(res => console.log(res));
+            navigate("/", { replace: true });
         } catch (err) {
             console.log('Register error:', err)
         }
@@ -28,13 +29,14 @@ export const Registration = () => {
     return (
         <>
             <h3>Регистрация</h3>
-            <form className="form form-login" onSubmit={e => e.preventDefault()}>
+            <form className="form form-login" autoComplete="off" onSubmit={e => e.preventDefault()}>
                 <div className="row">
                     <div className="input-field col s12">
                         <input
                             type="email"
                             name="email"
                             className="validate"
+                            autoComplete="false"
                             onChange={changeHandler}
                             value={form.email}
                         />
@@ -46,6 +48,7 @@ export const Registration = () => {
                             type="password"
                             name="password"
                             className="validate"
+                            autoComplete="false"
                             onChange={changeHandler}
                             value={form.password}
                         />
@@ -55,7 +58,7 @@ export const Registration = () => {
 
                 <div className="row">
                     <button
-                        className="wawes-effect wawes-light btn blue"
+                        className="waves-effect waves-light btn blue"
                         onClick={registerHandler}  
                     >
                         Регистрация
